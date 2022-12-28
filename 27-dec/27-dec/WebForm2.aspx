@@ -36,8 +36,9 @@
           
 
           <div class="text-center text-lg-start mt-4 pt-2">
-              <input id="Submit1" type="submit" runat="server" value="submit" ValidationGroup="logingroup"/>
-            <button type="button" class="btn btn-primary btn-lg">Login</button>
+             <%-- <input id="Submit1" type="submit" runat="server" value="submit"  ValidationGroup="logingroup"/>
+            <button type="button" class="btn btn-primary btn-lg">Login</button>--%>
+              <asp:Button ID="Button1" runat="server" Text="Login" ValidationGroup="logingroup" OnClick="Button1_Click" />
             <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
                 class="link-danger">Register</a></p>
           </div>
@@ -130,22 +131,24 @@
                       <label class="form-label" for="form3Example4cd">Repeat your password</label>
                       <asp:RequiredFieldValidator ID="RequiredFieldValidatorpass2" ValidationGroup="signingroup" ControlToValidate="password2" ForeColor="red" runat="server" ErrorMessage="fill this field"></asp:RequiredFieldValidator>
                             <asp:CompareValidator ID="CompareValidatorpass2" ValidationGroup="signingroup" runat="server" ControlToCompare="password1" Operator="Equal" ControlToValidate="password2" ForeColor="red" ErrorMessage="the password not match"></asp:CompareValidator>
-                        <input id="Submit2" type="submit" value="submit" runat="server" ValidationGroup="signingroup" />
-                 
+<%--                        <input id="Submit2" type="submit" value="submit" runat="server" ValidationGroup="signingroup" />--%>
+                        
                         </div>
                   </div>
 
                  
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">Register</button>
+
+                   <asp:Button ID="button" runat="server" type="submit" CssClass="btn btn-primary btn-lg" ValidationGroup="signingroup" Text="Register" OnClick="button_Click"></asp:Button>
+<%--    <button type="button" runat="server" class="btn btn-primary btn-lg">Register</button>--%>
                   </div>
 
       
 
               </div>
               <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
+                  
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                   class="img-fluid" alt="Sample image">
 
@@ -157,4 +160,14 @@
     </div>
   </div>
 </section>
+    
+    <script>
+        function submit1() {
+            var email = document.getElementById("TextBox1").value;
+            if (email == "") {
+                alert("please fill the email");
+                event.preventDefault();
+            }
+        }
+    </script>
 </asp:Content>

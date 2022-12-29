@@ -28,11 +28,11 @@ namespace _28_dec
                 SqlDataReader reader = comm.ExecuteReader();
                 while (reader.Read())
                 {
-                    Label1.Text = TextBox1.Text;
+                    Label1.Text += reader["comment"]+"<br>";
                 }
                 con.Close();
                 ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert",
-                                "swal('Good job!', 'Message added seccessfully ')", true);
+                                "swal('Good job!', 'comment added seccessfully ')", true);
             }
         }
     }

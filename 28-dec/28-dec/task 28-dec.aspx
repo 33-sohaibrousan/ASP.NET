@@ -25,16 +25,17 @@
               <div class="w-100">
                 <h5>Add a comment</h5>
               
-                <div class="form-outline">
+
+                  <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                      <ContentTemplate>
+                                          <div class="form-outline">
                     <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine"></asp:TextBox>
                               <asp:RequiredFieldValidator ControlToValidate="TextBox1" ValidationGroup="comment" runat="server" ErrorMessage="please fill this field" ForeColor="red"></asp:RequiredFieldValidator>
 
                
                   <label class="form-label" for="textAreaExample">What is your view?</label>
                 </div>
-                  <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                      <ContentTemplate>
                     <div class="d-flex justify-content-between mt-3">
                     <asp:Button ID="Button1" runat="server" ValidationGroup="comment" class="fas fa-long-arrow-alt-right ms-1" Text="send" OnClick="Button1_Click" />
                 </div>

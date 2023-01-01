@@ -22,9 +22,9 @@
         </asp:UpdatePanel>
         <asp:Timer ID="Timer1" Interval="1000" runat="server" OnTick="Timer1_Tick1"></asp:Timer>
         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AppendDataBoundItems="True">
-        <asp:ListItem Value="Red">red</asp:ListItem>
-        <asp:ListItem Value="Green">green</asp:ListItem>
-        <asp:ListItem Value="Blue">blue</asp:ListItem>
+        <asp:ListItem Value="Red" Text="red"></asp:ListItem>
+        <asp:ListItem Value="Green" Text="green"></asp:ListItem>
+        <asp:ListItem Value="Blue" Text="blue"></asp:ListItem>
         </asp:DropDownList>
        
     </form>

@@ -13,13 +13,20 @@ namespace _29_dec_state_mangemnent
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["time"] != null)
+            if (!IsPostBack)
             {
-                HttpCookie col = Request.Cookies["time"];
-                Label1.Text = DateTime.Now.ToString();
-                string color1 = col["color"].ToString();
-                Label1.Attributes.Add("style", $"color:{color1}");
+                if (Request.Cookies["time"] != null)
+                {
+                    
+                    HttpCookie col = Request.Cookies["time"];
+                    Label1.Text = DateTime.Now.ToString();
+                    string color1 = col["color"];
+                    //string drop = col["name"];
+                    Label1.Attributes.Add("style", $"color:{color1}");
+                    DropDownList1.Text = col["name"];
 
+
+                }
             }
         }
 
@@ -27,7 +34,9 @@ namespace _29_dec_state_mangemnent
         {
             HttpCookie time = new HttpCookie("time");
             time.Values.Add("color", DropDownList1.SelectedValue);
-          time.Expires=DateTime.Now.AddDays(1);
+            time.Values.Add("name", DropDownList1.Text);
+
+            time.Expires=DateTime.Now.AddDays(1);
             Response.Cookies.Add(time);
 
             Label1.Attributes.Add("style", $"color:{DropDownList1.SelectedValue}");
